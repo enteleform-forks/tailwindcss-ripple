@@ -1,0 +1,32 @@
+```css
+	.ripple{
+		transition: background 0.5s;
+	}
+	.ripple:hover {
+		transition: background 0.7s;
+	}
+	.ripple:active {
+		background-color: var(--Surface3_App_4);
+		transition:       background 0.1s;
+	}
+
+	/*.ripple{
+		background-position: 'center';
+		transition:
+			background-size  0.6s,
+			background-color 0s;
+	}
+	.ripple:hover {
+		background:
+			var(--Surface3_App_4)
+			radial-gradient(circle, var(--Surface3_App_2) 1%, transparent 1%)
+			center/15000%;
+	}
+	.ripple:active {
+		background-size: 100%;
+		background-color: var(--Surface3_App_2);
+		transition:
+			background-size  0.1s,
+			background-color 0s;
+	}*/
+```

@@ -19,34 +19,41 @@ module.exports = function() {
             return [
                 `${modifier}`,
                 {
-                    backgroundColor: value,
-                    backgroundPosition: 'center',
-                    transition: modifierTransition,
+                    transition: "background 0.5s",
                     '&:hover': {
-                        background: `${Color(value)
-                            .darken(darkenValue)
-                            .hex()
-                            .toString()} radial-gradient(circle, transparent 1%, ${Color(
-                            value
-                        )
-                            .darken(darkenValue)
-                            .hex()
-                            .toString()} 1%) center/15000%`,
+											transition: "background 0.7s",
                     },
                     '&:active': {
                         backgroundColor: value,
-                        backgroundSize: '100%',
-                        transition: activeTransition,
+                        transition:      "background 0.1s",
                     },
                 },
             ];
         }
+        //function returnColorPair([modifier, value]) {
+        //    return [
+        //        `${modifier}`,
+        //        {
+        //            backgroundColor: value,
+        //            backgroundPosition: 'center',
+        //            transition: modifierTransition,
+        //            '&:hover': {
+				//							background: `${value} radial-gradient(circle, transparent 1%, ${value} 1%) center/15000%`,
+        //            },
+        //            '&:active': {
+        //                backgroundColor: value,
+        //                backgroundSize: '100%',
+        //                transition: activeTransition,
+        //            },
+        //        },
+        //    ];
+        //}
 
         const allTheColors = _(rippleBgColors)
             .flatMap((value, modifier) => {
                 if (typeof value == 'object') {
                     return _.map(value, (v, m) => {
-                        return [`.${e(`ripple-bg-${modifier}-${m}`)}`, v];
+                        return [`.${e(`ripple-${modifier}-${m}`)}`, v];
                     });
                 }
                 if (
@@ -54,11 +61,11 @@ module.exports = function() {
                     value.length > 1
                 ) {
                     try {
-                        Color(value)
+                        value
                     } catch (err) {
                         return [];
                     }
-                    return [[`.${e(`ripple-bg-${modifier}`)}`, value]];
+                    return [[`.${e(`ripple-${modifier}`)}`, value]];
                 }
             })
             .value();
